@@ -1,0 +1,1 @@
+export function registerServiceWorker(){if('serviceWorker'in navigator)return navigator.serviceWorker.register('./sw.js')}if(typeof window!=='undefined')registerServiceWorker();
