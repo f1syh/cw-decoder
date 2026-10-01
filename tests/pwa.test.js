@@ -28,3 +28,8 @@ test('V10.4 propagates qualified ON start timestamp to Morse decoder', async () 
   const app = await read('js/app.js');
   assert.match(app, /timestampMs\s*:\s*d\.keyDown\s*\?\s*\(d\.keyDownSinceMs\s*\?\?\s*t\)\s*:\s*t/);
 });
+
+test('V10.5 constrains BF acquisition to 800-1000 Hz for validation', async () => {
+  const app = await read('js/app.js');
+  assert.match(app, /createCwDetector\(\{\s*minHz\s*:\s*800\s*,\s*maxHz\s*:\s*1000\s*\}\)/);
+});
