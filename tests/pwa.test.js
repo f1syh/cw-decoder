@@ -33,3 +33,11 @@ test('V10.5 constrains BF acquisition to 800-1000 Hz for validation', async () =
   const app = await read('js/app.js');
   assert.match(app, /createCwDetector\(\{\s*minHz\s*:\s*800\s*,\s*maxHz\s*:\s*1000\s*\}\)/);
 });
+
+test('V10.6 logs high-resolution DSP qualification telemetry', async () => {
+  const app = await read('js/app.js');
+  assert.match(app, /t-lastDspLog>=20/);
+  assert.match(app, /kind:'dsp'/);
+  assert.match(app, /onCandidateMs:d\.onCandidateMs/);
+  assert.match(app, /offCandidateMs:d\.offCandidateMs/);
+});
