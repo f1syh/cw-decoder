@@ -1,0 +1,12 @@
+[Unit]
+Description=CW Decoder debug telemetry collector
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /opt/cw-decoder/server/cw_debug_collector.py
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target
