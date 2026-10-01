@@ -23,3 +23,8 @@ test('service worker caches application shell', async () => {
   const sw = await read('sw.js');
   for (const path of ['./','./index.html','./css/app.css','./js/app.js','./manifest.webmanifest']) assert.ok(sw.includes(path));
 });
+
+test('V10.4 propagates qualified ON start timestamp to Morse decoder', async () => {
+  const app = await read('js/app.js');
+  assert.match(app, /timestampMs\s*:\s*d\.keyDown\s*\?\s*\(d\.keyDownSinceMs\s*\?\?\s*t\)\s*:\s*t/);
+});
